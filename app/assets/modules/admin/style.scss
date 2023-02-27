@@ -1,0 +1,238 @@
+$primary-color: #1565c0;
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 15%);
+
+$secondary-color: #098be0;
+
+@import 'materialize-css/sass/materialize';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+$font-stack: Open Sans, Arial, sans-serif;
+
+$nav-background-color: #1565c0;
+
+$left-panel-small-size: 60px;
+$left-panel-large-size: 300px;
+
+body {
+    background-color: #eee;
+    color: #000;
+    font: 100% $font-stack;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-wrapper {
+    background-color: #fff;
+    margin: 10px;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: initial;
+  }
+  .container > .row {
+    margin: 0;
+  }
+  .container > .row > .col {
+    padding: 0;
+  }
+
+.bold {
+    font-weight: bold;
+}
+
+nav.navbar {
+    padding: 0 20px;
+    background-color: $nav-background-color;
+    color: #fff;
+}
+
+#sidenav-left {
+    background-color: $nav-background-color;
+    color: #fff;
+}
+
+#sidenav-left a {
+    color: #fff;
+}
+
+.has-fixed-sidenav.active #sidenav-left a span {
+    display: inline;
+}
+
+.sidenav li > a > i, 
+.sidenav li > a > [class^="mdi-"], 
+.sidenav li > a li > a > [class*="mdi-"], 
+.sidenav li > a > i.material-icons {
+    color: #fff;
+}
+
+main {
+    flex:1 0 auto;
+}
+
+.breadcrumb {
+    padding: 20px;
+    background-color: #098be0;
+    color: #fcfefe;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    color: #fff;
+}
+
+.breadcrumb span {
+    margin-left: 20px;
+}
+
+.btn, 
+.btn-large, 
+.btn-small {
+    background-color: #098be0; 
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn-large:hover,
+.btn-large:focus,
+.btn-large:active,
+.btn-small:hover,
+.btn-small:focus,
+.btn-small:active {
+    background-color: $nav-background-color; 
+}
+
+.btn-head {
+    margin: 15px;
+}
+
+tr {
+    border: 1px solid #e0e0e0;
+}
+
+thead, tr > th {
+    background-color: #f5f5f5;
+    color: #a2a09e;
+}
+
+tr > th > a {
+    color: #a2a09e;
+}
+
+tr > td > a.action {
+    color: #9e9e9e;
+}
+
+tr:hover > td > a.action {
+    color: #000;
+}
+
+tr:hover > td > a.action:hover, 
+tr:hover > td > a.action:focus, 
+tr:hover > td > a.action:active {
+    text-decoration: underline;
+}
+
+.pagination li.active {
+    background-color: transparent;
+}
+
+.pagination li.active a {
+    color: #000084;
+    border-bottom: 2px solid #098be0;
+}
+
+.pagination li a {
+    font-size: 1rem;
+    padding: 0 5px;
+}
+
+.pagination li a i {
+    color: #098be0;
+    font-size: 1.6rem;
+}
+
+.modal {
+    top: 30px;
+    z-index: 999999;
+    display: block;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: #9e9e9e;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+    font-size: 32px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.wrapper-center {
+    position: relative;
+}
+
+.wrapper-center .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.wrapper-center .close i {
+    color: #9e9e9e;
+}
+
+@media only screen and (min-width: 993px) {
+    body.has-fixed-sidenav {
+        padding-left: $left-panel-small-size;
+    }
+
+    .has-fixed-sidenav .navbar-fixed nav.navbar {
+        width: calc(100% - #{$left-panel-small-size});
+        left: $left-panel-small-size;
+    }
+
+    .has-fixed-sidenav .sidenav {
+        width: $left-panel-small-size;
+    }
+
+    .has-fixed-sidenav .sidenav li > a {
+        padding: 0 16px;
+    }
+
+    body.has-fixed-sidenav.active {
+        padding-left: $left-panel-large-size;
+    }
+
+    .has-fixed-sidenav.active .navbar-fixed nav.navbar {
+        width: calc(100% - #{$left-panel-large-size});
+        left: $left-panel-large-size;
+    }
+
+    .has-fixed-sidenav.active .sidenav {
+        width: $left-panel-large-size;
+    }
+
+    .has-fixed-sidenav.active .sidenav li > a {
+        padding: 0 32px;
+    }
+
+    .container-wrapper {
+        margin: 15px;
+        padding: 10px;
+    }
+
+    .wrapper-center {
+        width: 30%;
+        margin: 0 auto;
+    }
+}

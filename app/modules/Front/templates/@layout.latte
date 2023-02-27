@@ -1,0 +1,35 @@
+{layout '../../Base/templates/@layout.latte'}
+
+{block head}
+	<link rel="stylesheet" href="{$basePath}/dist/front.bundle.css" defer/>
+{/block}
+
+{block scripts}
+    <script src="{$basePath}/dist/front.bundle.js"></script>
+{/block}
+
+{block header}
+<header>
+
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a n:href=":Front:Home:" class="brand-logo center">JM</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a n:href=":Admin:Home:">Admin</a></li>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a n:href=":Admin:Home:">Admin</a></li>
+  </ul>
+
+</header>
+{/block}
+
+{block main}
+<main>
+	<div class="container">
+		{include #content}
+	</div>
+</main>

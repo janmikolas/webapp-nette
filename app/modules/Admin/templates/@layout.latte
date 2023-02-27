@@ -1,0 +1,52 @@
+{layout '../../Base/templates/@layout.latte'}
+
+{block robots}noindex, nofollow{/block}
+
+{block head}
+    <link rel="stylesheet" href="{$basePath}/dist/admin.bundle.css">
+{/block}
+
+{block scripts}
+    <script src="{$basePath}/dist/admin.bundle.js"></script>
+{/block}
+
+{block header}
+<header>
+    <div class="navbar-fixed">
+        <nav class="navbar">
+            <div class="nav-wrapper">
+                <a n:href="Home:default" class="brand-logo">SRP</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a n:href="Sign:out"><span class="bold">Odhlásit</span> (admin)</a></li>
+                </ul>
+                <a href="#" data-target="sidenav-left" class="sidenav-trigger left"><i class="material-icons white-text">menu</i></a>
+            </div>
+        </nav>
+    </div>
+
+    <ul id="sidenav-left" class="sidenav sidenav-fixed"> 
+        <li class="hide-on-med-and-down show-on-large"><a href="#" class="sidenav-trigger-large"><i class="material-icons white-text">menu</i></a></li>
+        <li><a n:href="Home:default" class="waves-effect"><i class="material-icons">dashboard</i><span>Název1</span></a></li>
+        <li><a n:href="Manufacturer:default" class="waves-effect"><i class="material-icons">people</i><span>Název2</span></a></li>
+        <li><a n:href="Home:default" class="waves-effect"><i class="material-icons">new_releases</i><span>Název2</span></a></li>
+        <li><a n:href="Manufacturer:default" class="waves-effect"><i class="material-icons">loyalty</i><span>Název4</span></a></li>
+    </ul>
+</header>
+{/block}
+
+{block main}
+<main>
+	{block breadcrumb}<div class="breadcrumb">
+		<a href="{block breadcrumb_backlink}{link 'Home:default'}{/block}"><i class="material-icons">{block breadcrumb_icon|stripHtml|trim}arrow_back{/block}</i> <span>{include #title}</span></a>
+	</div>{/block}
+	<div class="container-wrapper">
+		<div class="container">
+            {snippet flashes}
+                    <div n:block="flashes" n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">{$flash->message}</div>
+            {/snippet}
+
+			{include #content}
+		</div>
+	</div>
+</main>
+{/block}

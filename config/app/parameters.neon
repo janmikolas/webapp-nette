@@ -1,0 +1,35 @@
+# Parameters
+#
+parameters:
+
+	# System
+	system:
+		error:
+			email: dev@dev.dev
+			presenter: Front:Error
+
+	# Database
+	database:
+		driver: mysqli
+		port: 3307
+		charset: utf8mb4
+		collation: utf8mb4_czech_ci
+
+	# Project
+	project:
+		rev: "1.0.0"
+
+	# File
+	files:
+		root: %appDir%/../data/files
+
+	# Mailing
+	mailing:
+		from: webapp@localhost
+		from_name: Webapp
+
+	# STMP
+	smtp:
+		host: localhost
+		username: fake
+		password: fake

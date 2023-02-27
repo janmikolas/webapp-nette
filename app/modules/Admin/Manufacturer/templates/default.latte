@@ -1,0 +1,101 @@
+{block breadcrumb_backlink}{link 'Home:default'}{/block}
+{block title}Značky{/block}
+
+{block content}
+<a n:href="Manufacturer:createManufacturer" data-modal="true" class="waves-effect waves-light btn btn-head modal-trigger ajax"><i class="material-icons left">add</i>Přidat značku</a>
+
+<div n:snippet="manufacturerlist" data-naja-history-nocache>
+{if $paginator->itemCountTotal && empty($manufacturers)}
+    <div class="card red darken-1">
+      <div class="row">
+        <div class="col s12 m10">
+          <div class="card-content white-text">
+            <p>Stránka {$paginator->required} bohužel neexistuje. Můžete přejít na stránku <a n:href="Manufacturer:default [name => $paginator->name, order => $paginator->order, page => $paginator->max, limit => $paginator->limit]">{$paginator->max}</a>.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+{elseif empty($manufacturers)}
+    <div class="card red darken-1">
+      <div class="row">
+        <div class="col s12 m10">
+          <div class="card-content white-text">
+            <p>Seznam je zatím prázdný. Přidejte značku.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+{else}
+    <table>
+        <thead>
+            <tr>
+                <th>Název
+                {if $paginator->name == 'name'}
+                    {if $paginator->order == 'ASC'}
+                        <a n:href="Manufacturer:default [name => 'name', order => 'DESC', page => $paginator->current, limit => $paginator->limit]"><i class="material-icons">arrow_upward</i></a>
+                    {else}
+                        <a n:href="Manufacturer:default [name => 'name', order => 'ASC', page => $paginator->current, limit => $paginator->limit]"><i class="material-icons">arrow_downward</i></a>
+                    {/if}
+                {else}
+                    <a n:href="Manufacturer:default [name => 'name', order => 'ASC', page => $paginator->current, limit => $paginator->limit]"><i class="material-icons">arrow_upward</i></a>
+                    <a n:href="Manufacturer:default [name => 'name', order => 'DESC', page => $paginator->current, limit => $paginator->limit]"><i class="material-icons">arrow_downward</i></a>
+                {/if}
+                </th>
+                <th class="right-align">Akce</th>
+            </tr>
+        </thead>
+        <tbody>
+        {foreach $manufacturers as $manufacturer}
+            <tr>
+                <td>{$manufacturer->getName()}</td>
+                <td class="right-align">
+                    <a n:href="Manufacturer:deleteManufacturer $manufacturer->getId()" class="ajax action">Smazat</a>
+                    <a n:href="Manufacturer:editManufacturer $manufacturer->getId()" data-modal="true" class="ajax action">Editovat</a>
+                </td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+{/if}
+</div>
+
+<div n:snippet="pagination" data-naja-history-nocache>
+{if $paginator->itemCountTotal}
+{if $paginator->max > 1}
+    <ul class="pagination right-align">
+    {if $paginator->max > 2 && $paginator->current != 1}
+        <li class="waves-effect"><a n:href="Manufacturer:default [name => $paginator->name, order => $paginator->order, page => 1, limit => $paginator->limit]"><i class="material-icons">chevron_left</i></a></li>
+    {/if}
+    {for $i = 1; $i <= $paginator->max; $i++}
+        {if 
+            $i == 1 || 
+            $i == $paginator->max || 
+            ($i < 6 && $paginator->current < 5) || 
+            ($i > $paginator->max-5 && $paginator->current > $paginator->max-4) || 
+            ($i > $paginator->current-3 && $i < $paginator->current+3)
+        }
+            <li class="{if $paginator->current == $i}active{else}waves-effect{/if}"><a n:href="Manufacturer:default [name => $paginator->name, order => $paginator->order, page => $i, limit => $paginator->limit]">{$i}</a></li>
+        {elseif 
+            $i == $paginator->current+3 ||
+            $i == $paginator->current-3 ||
+            ($i == 6 && $paginator->current < 3) ||
+            ($i == $paginator->max-5 && $paginator->current > $paginator->max-6)
+         }
+            <li class="space disabled"><span>...</span></li>
+        {/if}
+    {/for}
+    {if $paginator->max > 2}
+        <li class="{if $paginator->max == $paginator->current}dissable{else}waves-effect{/if}"><a n:href="Manufacturer:default [name => $paginator->name, order => $paginator->order, page => $paginator->max, limit => $paginator->limit]"><i class="material-icons">chevron_right</i></a></li>
+    {/if}
+    </ul>
+{/if}
+
+<ul class="pagination right-align">
+{foreach $paginator->limitOptions as $limit}
+    {if $paginator->itemCountTotal/$limit > 1 || $limit === max($paginator->limitOptions)}
+        <li class="{if $paginator->limit == $limit}active{else}waves-effect{/if}"><a n:href="Manufacturer:default [name => $paginator->name, order => $paginator->order, page => $paginator->current, limit => $limit]">{$limit}</a></li>
+    {/if}
+{/foreach}
+</ul>
+{/if}
+</div>

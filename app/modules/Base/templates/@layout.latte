@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html style="box-sizing:border-box">
+<head>
+	<meta charset="UTF-8">
+	<title>{block title|stripHtml|trim}Test{/block} | JM</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="{$basePath}/favicon.ico" />
+
+	<meta name="description" n:ifset="#description" content="{include description}" />
+	<meta name="keywords" n:ifset="#keywords" content="{include keywords}" />
+	<meta name="robots" content="{block robots}index, follow{/block}" />
+	<meta name="googlebot" content="snippet,archive" />
+	<meta name="author" n:ifset="#author" content="{include author}">
+
+	{block head}{/block}
+	{* <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> *}
+</head>
+<body class="has-fixed-sidenav">
+{block header}{/block}
+
+{block main}{/block}
+
+{snippet modal}
+    {if $presenter->isAjax()}
+        {ifset #modal}
+            <!-- Modal -->
+            <div class="modal fade modal-ajax" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">{block |stripHtml}{include #title}{/block}</h4>
+
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {ifset #flashes}{include #flashes}{/ifset}
+                            {include #modal}
+                        </div>
+                        {ifset #modalFooter}
+                            <div class="modal-footer">
+                                {include #modalFooter}
+                            </div>
+                        {/ifset}
+                    </div>
+                    <!-- /.modal-content-->
+                </div>
+                <!-- /.modal-dialog-->
+            </div>
+            <!-- /.modal-->
+        {/ifset}
+    {/if}
+{/snippet}
+
+{block footer}{/block}
+
+{block scripts}{/block}
+</body>
+</html>

@@ -1,0 +1,13 @@
+$primary-color: #212121;
+$primary-color-light: lighten($primary-color, 15%);
+$primary-color-dark: darken($primary-color, 15%);
+
+$secondary-color: #616161;
+
+@import 'materialize-css/sass/materialize';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+    background-color: #424242;
+    color: #fff;
+}
