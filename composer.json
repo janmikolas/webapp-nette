@@ -1,6 +1,6 @@
 {
-  "name": "contributte/webapp-skeleton",
-  "description": "Webapp skeleton is full featured web app kit based on Nette Framework + Contributte and many useful packages by @f3l1x.",
+  "name": "janmikolas/webapp-nette",
+  "description": "Basic application for working with forms and datagrid by @janmikolas, used Conttributte code by @f3l1x.",
   "keywords": [
     "php",
     "nette",
