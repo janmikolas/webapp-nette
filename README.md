@@ -1,5 +1,5 @@
 ## Goal
-Create a basic application for working with forms and datagrid on Conttributte.
+Create a basic application for working with forms and datagrid on Contributte.
 
 Focused on:
 
