@@ -38,8 +38,9 @@ module.exports = {
 	},
 	output: {
 		path: path.join(ROOT_PATH, "www/dist"),
-		publicPath: "/dist/",
+		publicPath: "./",
 		filename: '[name].bundle.js',
+		assetModuleFilename: 'fonts/[name].[hash:8].[ext]',
 	},
 	devtool: 'cheap-module-source-map',
 	cache: {
@@ -91,20 +92,11 @@ module.exports = {
 			},
 			{
 				test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
-				use: [
-					{
-						loader: 'url-loader',
-						options: {
-							limit: 4096,
-							fallback: {
-								loader: 'file-loader',
-								options: {
-									name: 'fonts/[name].[hash:8].[ext]'
-								}
-							}
-						}
-					}
-				]
+				type: 'asset/resource',
+    			dependency: { not: ['url'] },
+				generator: {
+					filename: 'fonts/[name].[hash:8].[ext]',
+				},
 			},
 			{
 				test: /\.(svg)(\?.*)?$/,

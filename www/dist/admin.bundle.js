@@ -28,9 +28,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! materialize-css */ "../../node_modules/materialize-css/dist/js/materialize.js");
 /* harmony import */ var materialize_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(materialize_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _theme_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./theme/style.scss */ "./theme/style.scss");
+/* harmony import */ var material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! material-icons/iconfont/material-icons.css */ "../../node_modules/material-icons/iconfont/material-icons.css");
+/* harmony import */ var _theme_style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme/style.scss */ "./theme/style.scss");
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "../../node_modules/jquery/dist/jquery.js");
 // Required dependencies
+
 
 
 $(document).ready(function () {
@@ -23461,6 +23463,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************!*\
   !*** ./theme/style.scss ***!
   \**************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "../../node_modules/material-icons/iconfont/material-icons.css":
+/*!*********************************************************************!*\
+  !*** ../../node_modules/material-icons/iconfont/material-icons.css ***!
+  \*********************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

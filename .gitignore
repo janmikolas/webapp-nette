@@ -7,9 +7,6 @@
 # NodeJS
 /node_modules
 
-# Assets
-/www/dist
-
 # Tests
 /tests/*.log
 /tests/tmp
