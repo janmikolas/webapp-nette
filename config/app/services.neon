@@ -4,6 +4,8 @@ services:
 	# Forms
 	- App\UI\Form\FormFactory
 
+	# Cache
+	cache.storage: Nette\Caching\Storages\DevNullStorage
 
 	# Latte/Templates
 	latte.latteFactory:
