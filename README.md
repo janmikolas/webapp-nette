@@ -57,39 +57,32 @@ password: test
 	   port: 3307
    ```
 
-3) Modify `webpack.config.js` and set `publicPath` (not required)
+3) Import `db/db.sql` to `database`
 
-   Default configuration should look like this:
-   ```
-   publicPath = '/dist/'
-   ```
+4) Clean cache dir `var/tmp/cache` (not required)
 
-4) Import `db/db.sql` to `database`
-
-5) Clean cache dir `var/tmp/cache` (not required)
-
-6) Drop tables (not required)
+5) Drop tables (not required)
    ```
    php bin/console orm:schema-tool:drop  --dump-sql --force
    ```
 
-7) Create tables (not required)
+6) Create tables (not required)
    ```
    php bin/console orm:schema-tool:update  --dump-sql --force
    ```
    
-8) Insert fixtures data (not required)
+7) Insert fixtures data (not required)
    ```
    php bin/console doctrine:fixtures:load  --append
    ```
 
-9) Install assets
+8) Install assets
    ```
    # (if exist node_modules rmdir node_modules /q /s) && npm install
    npm install
    ```
 
-10) Build assets
+9) Build assets
    ```
    npm run start
    ```
