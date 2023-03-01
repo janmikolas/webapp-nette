@@ -20,6 +20,3 @@ parameters:
 #		username: "***"
 #		password: ***
 #		port: 2525
-
-services:
-	cache.storage: Nette\Caching\Storages\DevNullStorage
