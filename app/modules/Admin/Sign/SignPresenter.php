@@ -26,6 +26,16 @@ final class SignPresenter extends BaseAdminPresenter
 	{
 	}
 
+	public function beforeRender(): void
+	{
+		if ($this->isAjax()) {
+			$this->flashError('Error: You have been logged out. Failed to send data. Please refresh the page and log in again.');
+
+			$this->redrawControl('flashes');
+			$this->redrawControl('modal');
+		}
+	}
+
 	public function actionIn(): void
 	{
 		if ($this->user->isLoggedIn()) {
