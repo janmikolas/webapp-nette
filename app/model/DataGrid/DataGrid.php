@@ -3,21 +3,25 @@
 namespace App\Model\DataGrid;
 
 use Nette\Utils\Paginator;
+use App\Model\Database\EntityManager;
 
 final class DataGrid
 {
 	// Properties for pagination and filtering
-	private $pageCurrent = 1;
-	private $pageMax = 1;
-	private $limitOptions = [10, 20, 30];
-	private $limit = 30;
-	private $orderbyName;
-	private $orderbyAscDesc;
-	private $itemCountTotal = 0;
-	private $repositoryData;
+	private int $pageCurrent = 1;
+	private int $pageMax = 1;
+	private int $pageRequired = 1;
+	private array $limitOptions = [10, 20, 30];
+	private int $limit = 30;
+	private string $orderbyName = 'id';
+	private string $orderbyAscDesc = 'ASC';
+	private int $itemCountTotal = 0;
+	private array $repositoryData;
 
-	public function __construct(object $repository, array $parameters)
+	public function __construct(string $entityName, array $parameters, EntityManager $em)
 	{
+		$repository = $em->getRepository($entityName);
+
 		// Set the sorting order and limit based on the input parameters
 		if(isset($parameters['name']) && $parameters['name'] === 'name') {
 			$this->orderbyName = 'name';
@@ -45,7 +49,6 @@ final class DataGrid
 
 		// Count the total number of items in the repository
 		$this->itemCountTotal = $repository->count([]);
-       
 		// Create a paginator object to handle pagination
 		$paginator = new Paginator;
 		$paginator->setPage($this->pageRequired);
@@ -68,13 +71,13 @@ final class DataGrid
 	}
 
 	// Return the fetched data
-	public function getData()
+	public function getData(): array
 	{
 		return $this->repositoryData;
 	}
 
 	// Return the filter and the pagination information
-	public function getPaginator()
+	public function getPaginator(): object
 	{
 		return (object)[
 			'required' => $this->pageRequired,

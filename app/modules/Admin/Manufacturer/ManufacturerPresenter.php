@@ -37,11 +37,8 @@ final class ManufacturerPresenter extends BaseAdminPresenter
 	}
 
 	public function renderDefault(array $parameters): void
-	{	
-		$repository = $this->em->getManufacturerRepository();
-
-		$datagrid = new DataGrid($repository, $parameters);
-
+	{
+		$datagrid = new DataGrid(Manufacturer::class, $parameters, $this->em);
 		$this->template->manufacturers = $datagrid->getData();
 		$this->template->paginator = $datagrid->getPaginator();
 	}
