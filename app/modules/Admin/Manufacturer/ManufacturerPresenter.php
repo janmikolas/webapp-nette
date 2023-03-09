@@ -34,12 +34,6 @@ final class ManufacturerPresenter extends BaseAdminPresenter
 		$this->redrawControl('pagination');
 		$this->redrawControl('flashes');
 		$this->redrawControl('modal');
-
-		if ($this->isAjax()) {
-			$this->payload->showModal = true;
-			$this->payload->modalId = 'myModal';
-			$this->redrawControl('modal');
-		}
 	}
 
 	public function renderDefault(array $parameters): void
