@@ -18,6 +18,13 @@ final class DataGrid
 	private int $itemCountTotal = 0;
 	private array $repositoryData;
 
+	/**
+	 * Create a new instance of the DataGrid class
+	 *
+	 * @param string $entityName The name of the entity to fetch data for
+	 * @param array $parameters The filtering and pagination parameters to apply
+	 * @param EntityManager $em The entity manager instance to use
+	 */
 	public function __construct(string $entityName, array $parameters, EntityManager $em)
 	{
 		$repository = $em->getRepository($entityName);
@@ -58,7 +65,7 @@ final class DataGrid
 		// Update the current and maximum page numbers based on the paginator
 		$this->pageCurrent = $paginator->getPage();
 		$this->pageMax = $paginator->getPageCount();
-       
+		
 		/* Uncomment the following code if you want to prevent the display of the last possible page
 		if($this->pageRequired !== $this->pageCurrent) {
 			return;
@@ -70,13 +77,30 @@ final class DataGrid
 		$this->repositoryData = $repository->findBy([], $orderby, $paginator->getLength(), $paginator->getOffset());
 	}
 
-	// Return the fetched data
+	/**
+	 * Get the fetched data from the data grid
+	 *
+	 * @return array The fetched data
+	 */
 	public function getData(): array
 	{
 		return $this->repositoryData;
 	}
 
-	// Return the filter and the pagination information
+	/**
+	 * Returns an object representing the paginator state.
+	 *
+	 * @return object {
+	 *     @property int $required The required page number.
+	 *     @property int $current The current page number.
+	 *     @property int $max The maximum page number.
+	 *     @property string $name The name of the column to order by.
+	 *     @property string $order The order direction ('asc' or 'desc').
+	 *     @property int $limit The maximum number of items per page.
+	 *     @property int[] $limitOptions The available limit options.
+	 *     @property int $itemCountTotal The total number of items in the result set.
+	 * }
+	 */
 	public function getPaginator(): object
 	{
 		return (object)[
