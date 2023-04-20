@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17dd8fb9202425b4108d43240c437682",
+    "content-hash": "defdc9b02bd3b283b7d7e03545909836",
     "packages": [
         {
             "name": "contributte/application",
@@ -6993,16 +6993,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.9.17",
+            "version": "1.10.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "204e459e7822f2c586463029f5ecec31bb45a1f2"
+                "reference": "d232901b09e67538e5c86a724be841bea5768a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/204e459e7822f2c586463029f5ecec31bb45a1f2",
-                "reference": "204e459e7822f2c586463029f5ecec31bb45a1f2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d232901b09e67538e5c86a724be841bea5768a7c",
+                "reference": "d232901b09e67538e5c86a724be841bea5768a7c",
                 "shasum": ""
             },
             "require": {
@@ -7031,8 +7031,11 @@
                 "static analysis"
             ],
             "support": {
+                "docs": "https://phpstan.org/user-guide/getting-started",
+                "forum": "https://github.com/phpstan/phpstan/discussions",
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.9.17"
+                "security": "https://github.com/phpstan/phpstan/security/policy",
+                "source": "https://github.com/phpstan/phpstan-src"
             },
             "funding": [
                 {
@@ -7048,7 +7051,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-08T12:25:00+00:00"
+            "time": "2023-04-19T13:47:27+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -7923,7 +7926,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.0"
+        "php": ">=8.0 <8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
